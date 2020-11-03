@@ -1,4 +1,4 @@
-on: pull_request
+on: pull_request_target
 
 jobs:
   close:
@@ -15,7 +15,7 @@ jobs:
               body: 'Closing.'
             })
             
-            await octokit.issues.update({
+            await github.issues.update({
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
